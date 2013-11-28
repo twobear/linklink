@@ -1,0 +1,81 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script id="shader-vs" type="x-shader/x-vertex">
+    //定义一个存储顶点坐标的寄存器长度为2,因为我们只用到了XY
+    attribute vec2 aVertexPosition;
+
+    //定义一个存储顶点UV坐标的寄存器长度为2
+    attribute vec2 aTextureUv;
+
+    //定义一个存储顶点颜色信息的寄存器,长度为4,因为是RGBA
+    attribute vec4 verticesColor;
+
+    //定义个UV插值寄存器长度为2
+    varying vec2 vTextureCoord;
+
+    //定义一个颜色插值寄存器长度为4
+    varying vec4 verticesColorVarying;
+
+    //定义一个4*4矩阵
+    uniform mat4 oRMatrix;
+
+    //着色器构造函数
+    void main(void) {
+
+
+        //让矩阵乘以顶点坐标,这个矩阵实际上就是外部的正交视口的矩阵,因为矩阵是4*4而坐标长度为2,所以我们会把坐标转换成
+        //长度为4的向量寄存器补齐后面的参数
+        gl_Position =  oRMatrix*vec4(aVertexPosition,1.0,1.0);
+
+        //直接将UV信息赋值给插值寄存器,它内部帮我们自动计算插值坐标并且传递给片段着色器
+        vTextureCoord = aTextureUv;
+
+        //把颜色信息通过插值变量传递到片段着色器
+        verticesColorVarying=verticesColor;
+    }
+</script>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec2 vTextureCoord;
+        varying vec4 verticesColorVarying;
+        uniform sampler2D p_1;
+        void main(void) {
+           gl_FragColor = texture2D(p_1,vTextureCoord)*verticesColorVarying;
+        }
+</script>
+<style>
+    
+</style>
+
+<audio id="backgroundSound">
+    <!-- 浏览器会自动识别支持的格式. -->
+    <source src="sound.mp3" type="audio/mp3">
+    <source src="sound.ogg" type="audio/ogg"> 
+    <source src="sound.aac" type="audio/mp4">   
+</audio>
+
+<audio id="clickSound">
+    <!-- 浏览器会自动识别支持的格式. -->
+    <source src="click.mp3" type="audio/mp3">
+    <source src="click.ogg" type="audio/ogg"> 
+    <source src="click.aac" type="audio/mp4">
+</audio>
+
+<audio id="connect">
+    <!-- 浏览器会自动识别支持的格式. --> 
+    <source src="connect.mp3" type="audio/mp3">
+    <source src="connect.ogg" type="audio/ogg">
+    <source src="connect.aac" type="audio/mp4">
+</audio>
+
+<script type="text/javascript"  LANGUAGE="JavaScript" src="DisplayerObjectGL.js"></script>
+<script type="text/javascript"  LANGUAGE="JavaScript" src="Main.js"></script>
+</head>
+<body  style="margin:0">
+<body onload="webGLStart();">
+    <canvas id="myWebGL" style="border: none;" width="800" height="600">Oh,No!您的浏览器不支持Canvas!请使用现代浏览器打开该页面！</canvas>
+</body>
+
+</html>

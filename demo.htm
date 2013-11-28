@@ -1,0 +1,147 @@
+﻿<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>HTML5游戏开发者社区</title>
+<meta name="keywords" content="HTML5游戏开发,HTML5游戏网站,HTML5游戏,HTML5学习网站,HTML5游戏开发网站,HTML5game,HTML5知识,CSS3,Canvas游戏,webgl,canvas教程">
+<meta name="description" content="HTML5游戏开发者社区-html5game，是分享HTML5游戏开发和优质的HTML5游戏的站点，包括最新HTML5行业和技术资讯，HTML5学习知识和优质好玩的HTML5游戏Demo等。..">
+<link rel="stylesheet" href="http://html5gamedev.org/wp-content/themes/d-simple/style.css" media="all">
+<!--[if lt IE 9]><script src="http://html5gamedev.org/wp-content/themes/d-simple/js/html5.js"></script><![endif]-->
+    <style type="text/css">
+    body{
+        background-color: #000;
+        color: #fff;
+    }
+    .container{
+        width: 960px;
+    }
+    .wrap{
+         width:760px;
+         height:560px;
+         margin:20px auto;
+         position: relative;
+         text-align: center;
+    }
+        .logolayer{
+           position: absolute;
+           top:2px;
+           right:0px;
+
+         
+        }
+    
+         .canvaslayer{
+            width:760px;
+            height:560px;
+            
+            z-index:0;
+            background-color:#fff;
+
+        
+        }
+
+
+        #canvas_frame{
+            width:100%;
+            height:100%;
+            margin:0px auto;
+        }
+       
+        .footer{
+            margin-top:50px;
+        }
+        .game_content{
+            
+        }
+        .game_content_p{
+            width:1024px;
+        }
+
+.side-nav {
+position: fixed;
+left: 10px;
+top: 45%;
+}
+
+.side-nav a{
+
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+cursor: pointer;
+text-align: center;
+color: #fff;
+padding: 5px 20px;
+line-height: 30px;
+background-color: #7BC1A9;
+font-weight: bold;
+}
+.side-nav a:hover{
+background-color: #E45427;
+}
+
+    </style>
+</head>
+<body class="home blog" id="hasfixed">
+<header class="header">
+	<div class="central">
+		<h1 class="logo"><a href="http://html5gamedev.org/" title="HTML5游戏开发者社区">HTML5游戏开发者社区</a></h1>
+		<ul class="nav">
+			<li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-8"><a href="http://html5gamedev.org/">首页</a></li>
+<li id="menu-item-5" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5"><a href="http://html5gamedev.org/?cat=5">游戏资讯</a></li>
+<li id="menu-item-6" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6"><a href="http://html5gamedev.org/?cat=2">设计路上</a>
+<ul class="sub-menu">
+	<li id="menu-item-766" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-766"><a href="http://html5gamedev.org/?cat=38">WebGL</a></li>
+	<li id="menu-item-767" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-767"><a title="游戏引擎开发" href="http://html5gamedev.org/?cat=150">游戏引擎开发</a></li>
+	<li id="menu-item-4" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4"><a href="http://html5gamedev.org/?cat=4">快速入门</a></li>
+</ul>
+</li>
+<li id="menu-item-7" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7"><a href="http://html5gamedev.org/?cat=3">资源共享</a></li>
+<li id="menu-item-190" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-190"><a href="http://html5gamedev.org/?cat=45">游戏芬享</a></li>
+<li id="menu-item-761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-761"><a title="关于我们" href="http://html5gamedev.org/?page_id=753">关于我们</a>
+<ul class="sub-menu">
+	<li id="menu-item-771" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-771"><a title="关于我们" href="http://html5gamedev.org/?page_id=753">关于我们</a></li>
+	<li id="menu-item-772" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-772"><a title="加入我们" href="http://html5gamedev.org/?page_id=2">加入我们</a></li>
+	<li id="menu-item-770" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-770"><a title="业务合作" href="http://html5gamedev.org/?page_id=756">业务合作</a></li>
+</ul>
+</li>
+</ul>
+		
+	</div>
+</header>
+    <section class="central container" >
+       
+
+       <div class="wrap">
+            
+            <div class="canvaslayer" id="canvaslayer_id">
+                <iframe src="index.html" id="canvas_frame" scrolling="no"></iframe>
+                
+            </div>
+
+       </div>
+       
+        <div class="game_content">
+            <p class="game_content_p">
+                
+            </p>
+        </div>
+        <h2>游戏介绍</h2>
+<p style="font-size:15px;">这是HTML5游戏开发者社区竭力打造的国内首款基于WebGL的2D游戏！经过我们社区成员不懈的努力探索，终于冲破迷雾，打造了国内首个WebGL游戏引擎，并精心制作了这个画面精美、运行流畅的连连看游戏Demo，旨在为未来更多的WebGL探索者扫清障碍，给出WebGL 2D游戏开发的最佳实践。目前该游戏还处于alpha版本。</p>
+<h2 style="margin-top:20px;">浏览器限制</h2>
+<p style="font-size:15px;">为了良好的体验和试玩该游戏，您需要确保您的浏览器支持WebGL功能，且相应的配置正确。游戏兼容除IE系列浏览器之外的绝大多数现代浏览器。游戏在Chrome 31.0.1650.57 ,Firefox 25.0.1,Opera 15.0.1147.130等版本的浏览器上测试通过。推荐下载最新版本的Chrome浏览器体验该游戏。</p>
+    </section>
+
+
+<footer class="footer">
+	
+<div class="central">
+		<div class="copyright">
+			版权所有，保留一切权利！ © 2013 <a target="_blank" href="http://html5gamedev.org/">HTML5游戏开发者社区</a>
+		</div>
+	</div>
+</footer>
+
+
+</body>
+</html>
